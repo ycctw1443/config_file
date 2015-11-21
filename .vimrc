@@ -70,6 +70,7 @@ if has('lua') && v:version >= 703 && has('patch885')
         " NeoCompleteEnable
     endfunction
 endif
+set completeopt=menuone
 
 " neosnippetの設定
 NeoBundle 'Shougo/neosnippet.vim'
@@ -77,23 +78,23 @@ NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/neosnippet'
 " <TAB>: completion.
 " inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
+"""inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
 " Plugin key-mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+"""imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+"""smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 
 " SuperTab like snippets behavior.
 " imap <expr><TAB> neosnippet#jumpable() ?
 "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#jumpable() ?
+"""imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#jumpable() ?
 "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-smap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+"""smap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 " For snippet_complete marker.
-if has('conceal')
-  set conceallevel=2 concealcursor=i
-  endif
+"""if has('conceal')
+"""  set conceallevel=2 concealcursor=i
+"""  endif
 
 
 
@@ -130,6 +131,10 @@ let g:quickrun_no_default_key_mappings = 1
 nnoremap /r :cclose<CR>:write<CR>:QuickRun -mode n<CR>
 xnoremap /r :<C-U>cclose<CR>:write<CR>gv:QuickRun -mode v<CR>
 au FileType qf nnoremap <silent><buffer>q :quit<CR>
+
+" flake8
+NeoBundleLazy 'hynek/vim-python-pep8-indent', {
+    \ "autoload": {"insert": 1, "filetypes": ["python", "python3", "djangohtml"]}}
 
 NeoBundle 'kana/vim-smartinput'
 NeoBundle 'kana/vim-operator-user'
