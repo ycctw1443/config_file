@@ -17,7 +17,7 @@ set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
 set number
 set wrap
 set textwidth=0
-set colorcolumn=80
+autocmd FileType python setl colorcolumn=80
 
 set ignorecase
 set smartcase
@@ -42,11 +42,11 @@ if has('vim_starting')
   endif
 
   " Required:
-  set runtimepath+=/Users/kenya/.vim/bundle/neobundle.vim/
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
 " Required:
-call neobundle#begin(expand('/Users/kenya/.vim/bundle'))
+call neobundle#begin(expand('~/.vim/bundle'))
 
 " Let NeoBundle manage NeoBundle
 " Required:
@@ -198,6 +198,21 @@ let g:jedi#completions_enabled = 0
 let g:jedi#auto_vim_configuration = 0
 "let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
 
+
+
+" Markdownの設定
+NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'kannokanno/previm'
+NeoBundle 'tyru/open-browser.vim'
+augroup PrevimSettings
+  autocmd!
+  autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+augroup END
+
+" オートセーブの設定
+NeoBundle 'vim-scripts/vim-auto-save'
+" デフォルトで有効にする
+let g:auto_save = 1
 
 
 "色設定
