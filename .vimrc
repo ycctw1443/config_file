@@ -160,9 +160,10 @@ autocmd FileType vimfiler nmap <buffer> <CR> <Plug>(vimfiler_expand_or_edit)
 
 NeoBundle "scrooloose/syntastic", {
       \ "build": {
-      \ "mac": ["pip install flake8", "npm -g install coffeelint"],
-      \ "unix": ["pip install flake8", "npm -g install coffeelint"],
+      \ "mac": ["pip install flake8","npm -g install coffeelint"],
+      \ "unix": ["pip install flake8","npm -g install coffeelint"],
       \ }}
+let g:syntastic_python_checkers = ["flake8"]
 " python設定
 NeoBundleLazy 'hynek/vim-python-pep8-indent', {
     \ "autoload": {"insert": 1, "filetypes": ["python", "python3", "djangohtml"]}}
@@ -208,11 +209,6 @@ augroup PrevimSettings
   autocmd!
   autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 augroup END
-
-" オートセーブの設定
-NeoBundle 'vim-scripts/vim-auto-save'
-" デフォルトで有効にする
-let g:auto_save = 1
 
 
 "色設定
