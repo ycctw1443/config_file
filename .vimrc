@@ -132,10 +132,6 @@ nnoremap /r :cclose<CR>:write<CR>:QuickRun -mode n<CR>
 xnoremap /r :<C-U>cclose<CR>:write<CR>gv:QuickRun -mode v<CR>
 au FileType qf nnoremap <silent><buffer>q :quit<CR>
 
-" flake8
-NeoBundleLazy 'hynek/vim-python-pep8-indent', {
-    \ "autoload": {"insert": 1, "filetypes": ["python", "python3", "djangohtml"]}}
-
 NeoBundle 'kana/vim-smartinput'
 NeoBundle 'kana/vim-operator-user'
 NeoBundle 'kana/vim-textobj-user'
@@ -145,8 +141,6 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'vim-scripts/Align'
 NeoBundle 'vim-scripts/YankRing.vim'
 NeoBundle "thinca/vim-template"
-
-NeoBundle "scrooloose/syntastic"
 
 " vimfiler設定
 NeoBundle "Shougo/vimfiler"
@@ -163,11 +157,47 @@ autocmd FileType vimfiler nmap <buffer> <CR> <Plug>(vimfiler_expand_or_edit)
 " If no files are specified, open vimfiler
 "autocmd VimEnter * if !argc() | VimFiler | endif
 
+
+NeoBundle "scrooloose/syntastic", {
+      \ "build": {
+      \ "mac": ["pip install flake8", "npm -g install coffeelint"],
+      \ "unix": ["pip install flake8", "npm -g install coffeelint"],
+      \ }}
 " python設定
+NeoBundleLazy 'hynek/vim-python-pep8-indent', {
+    \ "autoload": {"insert": 1, "filetypes": ["python", "python3", "djangohtml"]}}
+
 NeoBundleLazy "nvie/vim-flake8", {
       \ "autoload": {
       \   "filetypes": ["python", "python3", "djangohtml"]
       \ }}
+
+NeoBundleLazy "davidhalter/jedi-vim", {
+      \ "autoload": {
+      \   "filetypes": ["python", "python3", "djangohtml"],
+      \ },
+      \ "build": {
+      \   "mac": "pip install jedi",
+      \   "unix": "pip install jedi",
+      \ }}
+let s:hooks = neobundle#get_hooks("jedi-vim")
+function! s:hooks.on_source(bundle)
+" jediにvimの設定を任せると'completeopt+=preview'するので
+" 自動設定機能をOFFにし手動で設定を行う
+  let g:jedi#auto_vim_configuration = 0
+  " 補完の最初の項目が選択された状態だと使いにくいためオフにする
+  let g:jedi#popup_select_first = 0
+  let g:jedi#rename_command = '<Leader>R'
+  let g:jedi#goto_command = '<Leader>G'
+endfunction
+
+"jedi + neocomplete
+autocmd FileType python setlocal omnifunc=jedi#completions
+let g:jedi#popup_select_first=0
+let g:jedi#completions_enabled = 0
+let g:jedi#auto_vim_configuration = 0
+"let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+
 
 
 "色設定
