@@ -175,6 +175,11 @@ NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
 
+" オートセーブの設定
+NeoBundle 'vim-scripts/vim-auto-save'
+" デフォルトで有効にする
+let g:auto_save = 1
+
 
 "色設定
 " solarized カラースキーム
