@@ -174,6 +174,10 @@ NeoBundleLazy "nvie/vim-flake8", {
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
+augroup PrevimSettings
+  autocmd!
+  autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+augroup END
 
 " オートセーブの設定
 NeoBundle 'vim-scripts/vim-auto-save'
