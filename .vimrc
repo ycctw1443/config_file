@@ -17,7 +17,7 @@ set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
 set number
 set wrap
 set textwidth=0
-set colorcolumn=80
+autocmd FileType python setl colorcolumn=80
 
 set ignorecase
 set smartcase
