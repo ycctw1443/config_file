@@ -98,7 +98,6 @@ NeoBundle 'Shougo/neosnippet'
 
 
 
-NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'flazz/vim-colorschemes'
 
@@ -201,6 +200,12 @@ let g:jedi#auto_vim_configuration = 0
 
 
 
+" Gitの設定
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'cohama/agit.vim'
+NeoBundle 'idanarye/vim-merginal'
+NeoBundle 'rhysd/committia.vim'
+
 " Markdownの設定
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'kannokanno/previm'
@@ -210,6 +215,10 @@ augroup PrevimSettings
   autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 augroup END
 
+"オートセーブの設定
+NeoBundle 'vim-scripts/vim-auto-save'
+" デフォルトで有効にする
+autocmd FileType markdown let g:auto_save = 1
 
 "色設定
 " solarized カラースキーム
