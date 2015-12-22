@@ -199,6 +199,28 @@ NeoBundleLazy "nvie/vim-flake8", {
 "let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
 
 
+NeoBundle "kana/vim-textobj-indent"
+NeoBundle "jmcantrell/vim-virtualenv"
+let g:virtualenv_directory = '~'
+NeoBundle "bps/vim-textobj-python"
+NeoBundleLazy 'hachibeeDI/python_hl_lvar.vim', {
+            \   'autoload' : {
+            \     'filetypes' : ['python'],
+            \   },
+            \ }
+let g:enable_python_hl_lvar = 1
+" default is 'guifg=palegreen3 gui=NONE ctermfg=114 cterm=NONE'
+let g:python_hl_lvar_highlight_color = 'guifg=lightgoldenrod2 gui=NONE ctermfg=186 cterm=NONE'
+
+autocmd BufWinEnter  *.py PyHlLVar
+autocmd BufWinLeave  *.py PyHlLVar
+autocmd WinEnter     *.py PyHlLVar
+autocmd BufWritePost *.py PyHlLVar
+autocmd WinLeave     *.py PyHlLVar
+autocmd TabEnter     *.py PyHlLVar
+autocmd TabLeave     *.py PyHlLVar
+
+
 
 " Gitの設定
 NeoBundle 'tpope/vim-fugitive'
