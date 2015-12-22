@@ -265,6 +265,9 @@ syntax on
 colorscheme hybrid 
 highlight Normal ctermbg=none
 
+" ステータスバーの設定
+set statusline=%F%m%r%h%w\%=[TYPE=%Y]\[FORMAT=%{&ff}]\[ENC=%{&fileencoding}]\[LOW=%l/%L]\ %{fugitive#statusline()}
+
 "バッファを閉じないようにする
 let g:unite_split_rule = 'botright'
 noremap ,u <ESC>:Unite -vertical -winwidth=40 -no-quit outline<Return>
