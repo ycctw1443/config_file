@@ -266,7 +266,7 @@ colorscheme hybrid
 highlight Normal ctermbg=none
 
 " ステータスバーの設定
-set statusline=%F%m%r%h%w\%=[TYPE=%Y]\[FORMAT=%{&ff}]\[ENC=%{&fileencoding}]\[LOW=%l/%L]\ %{fugitive#statusline()}
+set statusline=%F%m%r%h%w\%=[TYPE=%Y]\[FORMAT=%{&ff}]\[ENC=%{&fileencoding}]\[LOW=%l/%L]\ %{fugitive#statusline()}\ %{virtualenv#statusline()}
 
 "バッファを閉じないようにする
 let g:unite_split_rule = 'botright'
