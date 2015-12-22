@@ -137,7 +137,13 @@ au FileType qf nnoremap <silent><buffer>q :quit<CR>
 NeoBundle 'kana/vim-smartinput'
 NeoBundle 'kana/vim-operator-user'
 NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'kana/vim-operator-replace.git'
+map _ <Plug>(operator-replace)
 NeoBundle 'rhysd/vim-operator-surround'
+map <silent>sa <Plug>(operator-surround-append)
+map <silent>sd <Plug>(operator-surround-delete)
+map <silent>sr <Plug>(operator-surround-replace)
+
 
 NeoBundle 'vim-scripts/Align'
 NeoBundle 'vim-scripts/YankRing.vim'
@@ -202,6 +208,7 @@ NeoBundleLazy "nvie/vim-flake8", {
 
 
 NeoBundle "kana/vim-textobj-indent"
+NeoBundle "bps/vim-textobj-python"
 NeoBundle "jmcantrell/vim-virtualenv"
 let g:virtualenv_directory = '~'
 NeoBundle "bps/vim-textobj-python"
