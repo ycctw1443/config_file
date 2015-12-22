@@ -104,6 +104,9 @@ NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'Shougo/Unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/unite-outline'
+"バッファを閉じないようにする
+let g:unite_split_rule = 'botright'
+noremap ,u <ESC>:Unite -vertical -winwidth=30 -no-quit outline<Return>
 
 
 NeoBundle 'Shougo/vimproc', {
@@ -289,7 +292,4 @@ highlight Normal ctermbg=none
 " ステータスバーの設定
 set statusline=%F%m%r%h%w\%=[TYPE=%Y]\[FORMAT=%{&ff}]\[ENC=%{&fileencoding}]\[LOW=%l/%L]\ %{fugitive#statusline()}\ %{virtualenv#statusline()}
 
-"バッファを閉じないようにする
-let g:unite_split_rule = 'botright'
-noremap ,u <ESC>:Unite -vertical -winwidth=40 -no-quit outline<Return>
 
