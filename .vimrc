@@ -76,26 +76,6 @@ set completeopt=menuone
 NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/neosnippet'
-" <TAB>: completion.
-" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-"""inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
-
-" Plugin key-mappings.
-"""imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-"""smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-
-" SuperTab like snippets behavior.
-" imap <expr><TAB> neosnippet#jumpable() ?
-"\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-"""imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#jumpable() ?
-"\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-"""smap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-" For snippet_complete marker.
-"""if has('conceal')
-"""  set conceallevel=2 concealcursor=i
-"""  endif
-
 
 
 NeoBundle 'ctrlpvim/ctrlp.vim'
@@ -196,16 +176,6 @@ NeoBundle "jmcantrell/vim-virtualenv"
 let g:virtualenv_directory = '~'
 
 
-autocmd BufWinEnter  *.py PyHlLVar
-autocmd BufWinLeave  *.py PyHlLVar
-autocmd WinEnter     *.py PyHlLVar
-autocmd BufWritePost *.py PyHlLVar
-autocmd WinLeave     *.py PyHlLVar
-autocmd TabEnter     *.py PyHlLVar
-autocmd TabLeave     *.py PyHlLVar
-
-
-
 " Gitの設定
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'cohama/agit.vim'
@@ -225,6 +195,11 @@ augroup END
 NeoBundle 'vim-scripts/vim-auto-save'
 " デフォルトで有効にする
 autocmd FileType markdown let g:auto_save = 1
+
+
+" ステータスバーの設定
+NeoBundle 'bling/vim-airline'
+
 
 "色設定
 " solarized カラースキーム
@@ -271,7 +246,5 @@ syntax on
 colorscheme hybrid 
 highlight Normal ctermbg=none
 
-" ステータスバーの設定
-set statusline=%F%m%r%h%w\%=[TYPE=%Y]\[FORMAT=%{&ff}]\[ENC=%{&fileencoding}]\[LOW=%l/%L]\ %{fugitive#statusline()}\ %{virtualenv#statusline()}
 
 
