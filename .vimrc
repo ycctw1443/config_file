@@ -118,7 +118,7 @@ NeoBundle 'kana/vim-smartinput'
 NeoBundle 'kana/vim-operator-user'
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kana/vim-operator-replace.git'
-map _ <Plug>(operator-replace)
+map R <Plug>(operator-replace)
 NeoBundle 'rhysd/vim-operator-surround'
 map <silent>sa <Plug>(operator-surround-append)
 map <silent>sd <Plug>(operator-surround-delete)
