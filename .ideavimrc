@@ -1,0 +1,46 @@
+set surround
+
+nnoremap ; :
+nnoremap : ;
+inoremap ; :
+inoremap : ;
+
+nnoremap - $
+
+set clipboard=unnamed
+
+set shiftround
+set infercase
+set showmatch
+set matchtime=3
+
+set matchpairs& matchpairs+=<:>
+set backspace=indent,eol,start
+
+set nowritebackup
+set nobackup
+set noswapfile
+
+set list
+set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
+set number
+set wrap
+set textwidth=0
+autocmd FileType python setl colorcolumn=80
+
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+
+inoremap jj <Esc>
+nnoremap j gj
+nnoremap k gk
+vnoremap v $h
+
+set tabstop=4
+set autoindent
+set expandtab
+set shiftwidth=4
+
+
